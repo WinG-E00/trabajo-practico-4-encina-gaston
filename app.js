@@ -1,7 +1,7 @@
 import express from "express";
 
 import { startDB } from "./src/config/database.js";
-import { productRouter } from "./src/routes/produc.routes.js";
+import { movieRouter } from "./src/routes/movie.routes.js";
 
 
 const app = express();
@@ -13,12 +13,11 @@ const PORT = 3001;
 app.use(express.json());
 
 
-//Esto es para que la app use el router con las configuraciones que les pasemos
-//app.use("/api",productRouter);
+app.use("/api",movieRouter);
 
 
 app.listen(PORT, async () => {
-    // await startDB();
+     await startDB();
     console.log(`Servidor listo http://localhost:${PORT}`);
 })
 
